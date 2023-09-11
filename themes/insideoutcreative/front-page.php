@@ -1,17 +1,25 @@
 <?php get_header();
 
+
+if ( have_posts() ) : while ( have_posts() ) : the_post();
+the_content();
+endwhile; else:
+echo '<p>Sorry, no posts matched your criteria.</p>';
+endif;
+
+
 // start of intro
-echo '<section class="pt-5 pb-5 position-relative">';
-echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-12">';
+// echo '<section class="pt-5 pb-5 position-relative">';
+// echo '<div class="container">';
+// echo '<div class="row">';
+// echo '<div class="col-12">';
 
 
 
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</section>';
+// echo '</div>';
+// echo '</div>';
+// echo '</div>';
+// echo '</section>';
 // end of intro
 
 

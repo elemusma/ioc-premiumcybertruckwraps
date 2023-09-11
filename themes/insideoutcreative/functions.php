@@ -1,5 +1,15 @@
 <?php
 
+add_action( 'init', 'register_acf_blocks' );
+
+function register_acf_blocks() {
+    register_block_type( __DIR__ . '/blocks/content' );
+    register_block_type( __DIR__ . '/blocks/industries' );
+    register_block_type( __DIR__ . '/blocks/about' );
+    register_block_type( __DIR__ . '/blocks/popup' );
+    register_block_type( __DIR__ . '/blocks/applications' );
+}
+
 function ioc_stylesheets() {
 wp_enqueue_style('style', get_stylesheet_uri() );
 
