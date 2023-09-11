@@ -1,9 +1,11 @@
 <?php
 echo '<footer>';
-echo '<section class="pt-5">';
+
+echo '<section style="padding:25px 0px;">';
 echo '<div class="container">';
 echo '<div class="row justify-content-center">';
-echo '<div class="col-md-5 text-center pb-5">';
+
+echo '<div class="col-md-5 text-center" style="padding-bottom:25px;">';
 echo '<a href="' . home_url() . '">';
 
 $logo = get_field('logo','options'); 
@@ -17,26 +19,12 @@ echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto']);
 
 echo '</a>';
 echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</section>';
 
-echo '<section class="pt-5 bg-accent">';
-echo '<div class="container">';
-echo '<div class="row justify-content-center">';
-echo '<div class="col-12">';
-
-wp_nav_menu(array(
-'menu' => 'footer',
-'menu_class'=>'menu d-flex flex-wrap list-unstyled justify-content-center text-white text-uppercase'
-));
-
-echo '</div>';
-echo '<div class="col-12 text-center text-white">';
+echo '<div class="col-12 text-center">';
 
 echo get_template_part('partials/si');
 
-echo '<div class="text-gray-1 pt-4">';
+echo '<div class="" style="">';
 
 the_field('website_message','options');
 
@@ -45,7 +33,7 @@ echo '</div>';
 echo '</div>';
 echo '</div>';
 echo '</section>';
-echo '<div class="bg-gray text-center pt-3 pb-3 pl-5 pr-5">';
+echo '<div class="text-center" style="background:#363636;padding:15px;">';
     echo '<div class="d-flex justify-content-center align-items-center">';
         echo '<a href="https://insideoutcreative.io/" target="_blank" rel="noopener noreferrer" style="" class="">';
         echo '<img src="https://insideoutcreative.io/wp-content/uploads/2022/04/created-by-inside-out-creative.png" style="width:150px;" class="h-auto ml-2" alt="">';

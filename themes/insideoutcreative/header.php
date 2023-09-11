@@ -22,122 +22,129 @@ wp_head();
 <?php
 if(get_field('body','options')) { the_field('body','options'); }
 if(get_field('body_code')) { the_field('body_code'); }
-echo '<div class="blank-space"></div>';
-echo '<header class="position-relative pt-3 pb-3 z-3 box-shadow bg-white w-100" style="top:0;left:0;">';
+// echo '<div class="blank-space"></div>';
 
-echo '<div class="nav">';
+echo '<nav class="position-fixed w-100" style="top:0;left:0;z-index:1;background: rgb(0,0,0);
+background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);padding:15px 0px 25px;">';
 echo '<div class="container">';
-echo '<div class="row align-items-center">';
+echo '<div class="row align-items-center justify-content-between">';
 
-echo '<div class="col-lg-3 col-6 text-center">';
+echo '<div class="col-lg-4 col-6 text-center">';
 echo '<a href="' . home_url() . '">';
 
 $logo = get_field('logo','options'); 
 if($logo){
-echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'h-auto','style'=>'width:205px;max-width:100%;transition:all 1s ease-in-out;','id'=>'logo-main']); 
+    echo wp_get_attachment_image($logo['id'],'full','',[
+        'class'=>'w-100 h-auto',
+        'style'=>'transition:all 1s ease-in-out;',
+        'id'=>'logo-main'
+    ]); 
 }
 
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-lg-4 col-6 desktop-hidden">';
-echo '<a id="navToggle" class="nav-toggle">';
-echo '<div>';
-echo '<div class="line-1 bg-accent"></div>';
-echo '<div class="line-2 bg-accent"></div>';
-echo '<div class="line-3 bg-accent"></div>';
-echo '</div>';
-echo '</a>';
+echo '<div class="col-4 text-right">';
+
+echo '<a href="tel:+1' . get_field('phone','options') . '" style="color:white;text-decoration:none;font-size:1.25rem;" class="">' . get_field('phone','options') . '</a>';
+
+// echo '<a id="navToggle" class="nav-toggle">';
+// echo '<div>';
+// echo '<div class="line-1 bg-accent"></div>';
+// echo '<div class="line-2 bg-accent"></div>';
+// echo '<div class="line-3 bg-accent"></div>';
+// echo '</div>';
+// echo '</a>';
 echo '</div>';
 
-echo '<div id="navMenuOverlay" class="position-fixed z-2"></div>';
-echo '<div class="col-lg-4 col-md-8 col-11 nav-items bg-white desktop-hidden" id="navItems">';
+// echo '<div id="navMenuOverlay" class="position-fixed z-2"></div>';
+// echo '<div class="col-lg-4 col-md-8 col-11 nav-items bg-white desktop-hidden" id="navItems">';
 
-echo '<div class="pt-5 pb-5">';
-echo '<div class="close-menu">';
-echo '<div>';
-echo '<span id="navMenuClose" class="close h2 text-gray" style="float:right;">X</span>';
+// echo '<div class="pt-5 pb-5">';
+// echo '<div class="close-menu">';
+// echo '<div>';
+// echo '<span id="navMenuClose" class="close h2 text-gray" style="float:right;">X</span>';
+// echo '</div>';
+// echo '</div>';
+// echo '<a href="' . home_url() . '">';
+
+// $logo = get_field('logo','options'); 
+// if($logo){
+// echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto','style'=>'max-width:250px;']);
+// }
+
+// echo '</a>';
+// echo '</div>';
+// wp_nav_menu(array(
+// 'menu' => 'primary',
+// 'menu_class'=>'menu list-unstyled mb-0'
+// )); 
+// echo '</div>'; // end of col for navigation
+
+
+
 echo '</div>';
 echo '</div>';
-echo '<a href="' . home_url() . '">';
+echo '</nav>';
 
-$logo = get_field('logo','options'); 
-if($logo){
-echo wp_get_attachment_image($logo['id'],'full',"",['class'=>'w-100 h-auto','style'=>'max-width:250px;']);
-}
-
-echo '</a>';
-echo '</div>';
-wp_nav_menu(array(
-'menu' => 'primary',
-'menu_class'=>'menu list-unstyled mb-0'
-)); 
-echo '</div>'; // end of col for navigation
+echo '<header class="">';
 
 
-
-echo '</div>';
-echo '</div>';
-echo '</div>';
 
 echo '</header>';
 
-echo '<section class="hero position-relative">';
-$globalPlaceholderImg = get_field('global_placeholder_image','options');
-if(is_page()){
-if(has_post_thumbnail()){
-the_post_thumbnail('full', array('class' => 'w-100 h-100 bg-img position-absolute'));
-} else {
-echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
-}
-} else {
-echo wp_get_attachment_image($globalPlaceholderImg['id'],'full','',['class'=>'w-100 h-100 bg-img position-absolute']);
-}
+
 
 
 if(is_front_page()) {
-echo '<div class="pt-5 pb-5 text-white text-center">';
-echo '<div class="position-relative">';
-echo '<div class="multiply overlay position-absolute w-100 h-100 bg-img"></div>';
-echo '<div class="position-relative">';
-echo '<div class="container">';
-echo '<div class="row">';
-echo '<div class="col-12">';
-echo '<h1 class="pt-3 pb-3 mb-0">' . get_the_title() . '</h1>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-echo '</div>';
-}
 
+echo '<section class="hero position-relative d-flex align-items-end justify-content-center" style="min-height:100vh;">';
 
+the_post_thumbnail('full', array(
+    'class' => 'w-100 h-100 position-absolute',
+    'style' => 'top:0;left:0;object-fit:cover;'
+));
 
-if(!is_front_page()) {
-echo '<div class="container pt-5 pb-5 text-white text-center">';
-echo '<div class="row">';
-echo '<div class="col-md-12">';
-if(is_page() || !is_front_page()){
-echo '<h1 class="">' . get_the_title() . '</h1>';
-} elseif(is_single()){
-echo '<h1 class="">' . single_post_title() . '</h1>';
-} elseif(is_author()){
-echo '<h1 class="">Author: ' . get_the_author() . '</h1>';
-} elseif(is_tag()){
-echo '<h1 class="">' . get_single_tag_title() . '</h1>';
-} elseif(is_category()){
-echo '<h1 class="">' . get_single_cat_title() . '</h1>';
-} elseif(is_archive()){
-echo '<h1 class="">' . get_archive_title() . '</h1>';
-}
-elseif(!is_front_page() && is_home()){
-echo '<h1 class="">' . get_the_title(133) . '</h1>';
-}
+echo '<div class="w-100 text-white text-center" style="z-index:1;padding-bottom:75px;">';
+
+echo '<h1 class="w-100 thin" style="text-transform:uppercase;letter-spacing:.2em;font-size:6vw;margin-bottom:0;background:rgba(0,0,0,.5);">' . get_the_title() . '</h1>';
+
+echo '<div class="d-flex justify-content-center align-items-center" style="padding-top:15px;">';
+echo '<h2 class="thin" style="letter-spacing:.2em;margin:0;font-size:3vw;">PREMIUM CYBERTRUCK WRAPS</h2>';
+echo '<div class="m-auto bg-accent" style="margin-left:15px;height:2px;width:100px;"></div>';
 echo '</div>';
+
 echo '</div>';
-echo '</div>';
-}
 
 echo '</section>';
+}
+
+
+
+// if(!is_front_page()) {
+// echo '<div class="container pt-5 pb-5 text-white text-center">';
+// echo '<div class="row">';
+// echo '<div class="col-md-12">';
+// if(is_page() || !is_front_page()){
+// echo '<h1 class="">' . get_the_title() . '</h1>';
+// } elseif(is_single()){
+// echo '<h1 class="">' . single_post_title() . '</h1>';
+// } elseif(is_author()){
+// echo '<h1 class="">Author: ' . get_the_author() . '</h1>';
+// } elseif(is_tag()){
+// echo '<h1 class="">' . get_single_tag_title() . '</h1>';
+// } elseif(is_category()){
+// echo '<h1 class="">' . get_single_cat_title() . '</h1>';
+// } elseif(is_archive()){
+// echo '<h1 class="">' . get_archive_title() . '</h1>';
+// }
+// elseif(!is_front_page() && is_home()){
+// echo '<h1 class="">' . get_the_title(133) . '</h1>';
+// }
+// echo '</div>';
+// echo '</div>';
+// echo '</div>';
+// }
+
+
 ?>

@@ -5,7 +5,19 @@ echo '<section class="position-relative content-section ' . get_field('classes')
 echo get_template_part('partials/bg-img');
 
 echo '<div class="container">';
-echo '<div class="row align-items-center">';
+echo '<div class="row">';
+
+echo '<div class="col-1 ' . get_field('image_column_classes') . '" style="' . get_field('image_column_style') . '">';
+
+$img = get_field('image');
+
+echo wp_get_attachment_image($img['id'],'full','',[
+    'class'=>'' . get_field('image_classes'),
+    'style'=>'object-fit:contain;' . get_field('image_style')
+]);
+
+
+echo '</div>';
 
 // start of side links
 echo '<div class="col-md-4 col-side-links pr-md-5">';
