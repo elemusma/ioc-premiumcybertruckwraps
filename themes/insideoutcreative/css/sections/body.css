@@ -55,6 +55,10 @@ a.bg-accent-secondary:hover {
   background: white;
 }
 
+.bg-light {
+  background: #ebebeb;
+}
+
 .bg-black {
   background: black;
 }
