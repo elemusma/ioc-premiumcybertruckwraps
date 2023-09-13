@@ -109,6 +109,18 @@ blockquote {
   font-family: cormorant-garamond, serif;
 }
 
+h1 {
+  font-size: 6vw;
+}
+
+h2 {
+  font-size: 3vw;
+}
+
+p {
+  line-height: 1.75;
+}
+
 /* 
 font-family: cormorant-garamond, serif; 
 font-weight:300;
