@@ -18,3 +18,26 @@ body:not(.home) .img-hero {
     min-height: 200px;
     height: 30vh;
 }
+
+.hero {
+    min-height: 750px;
+}
+
+@media only screen and (min-width:992px) {
+    .hero {
+        height: 100vh;
+        min-height: 750px;
+    }
+}
+
+@media only screen and (max-width:991px) {
+    .hero-content {
+        padding-bottom: 15px !important;
+    }
+}
+
+@media only screen and (max-width:767px) {
+    .hero {
+        min-height: 350px !important;
+    }
+}

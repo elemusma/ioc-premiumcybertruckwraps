@@ -1,6 +1,6 @@
 <?php
 
-echo '<section class="position-relative content-section ' . get_field('classes') . '" style="padding:50px 0 0;' . get_field('style') . '" id="' . get_field('id') . '">';
+echo '<section class="position-relative about-section ' . get_field('classes') . '" style="padding:50px 0px;' . get_field('style') . '" id="' . get_field('id') . '">';
 
 echo get_template_part('partials/bg-img');
 
@@ -20,9 +20,11 @@ echo wp_get_attachment_image($img['id'],'full','',[
 echo '</div>';
 
 // start of side links
-echo '<div class="col-lg-4 col-md-7 col-11 col-side-links pr-md-5">';
+echo '<div class="col-md-4 col-11 col-side-links d-flex align-items-end">';
 
-echo '<div class="row">';
+// echo '<div class="h-100 d-flex align-items-baseline">';
+
+echo '<div class="row w-100">';
 
 echo '<div class="col-10">';
 
@@ -63,7 +65,7 @@ echo '</div>';
 //     echo '<div class="m-auto" style="height:100%;width:4px;background:var(--accent-primary);"></div>';
 // echo '</div>';
 
-echo '</div>';
+echo '</div>'; // end of row
 
 echo '</div>';
 // <!-- end of side links -->
@@ -76,16 +78,11 @@ the_field('content');
 echo '</div>';
 // <!-- end of content -->
 
-echo '<div class="col-12" style="padding-top:100px;">';
 
-echo wp_get_attachment_image(147,'full','',[
-    'class'=>'w-100 h-auto',
-    'style'=>''
-]);
-
-echo '</div>';
 
 echo '</div>'; // end of row
+
+// echo '</div>';
 
 echo '</div>'; // end of container
 

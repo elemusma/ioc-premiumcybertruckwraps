@@ -24,12 +24,12 @@ if(get_field('body','options')) { the_field('body','options'); }
 if(get_field('body_code')) { the_field('body_code'); }
 // echo '<div class="blank-space"></div>';
 
-echo '<nav class="position-fixed w-100" style="top:0;left:0;z-index:1;background: rgb(0,0,0);
+echo '<nav class="position-fixed w-100" style="top:0;left:0;z-index:3;background: rgb(0,0,0);
 background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);padding:15px 0px 25px;">';
 echo '<div class="container">';
 echo '<div class="row align-items-center justify-content-between">';
 
-echo '<div class="col-lg-4 col-6 text-center">';
+echo '<div class="col-lg-4 col-7 text-center">';
 echo '<a href="' . home_url() . '">';
 
 $logo = get_field('logo','options'); 
@@ -44,7 +44,7 @@ if($logo){
 echo '</a>';
 echo '</div>';
 
-echo '<div class="col-4 text-right">';
+echo '<div class="col-5 text-right">';
 
 echo '<a href="tel:+1' . get_field('phone','options') . '" style="color:white;text-decoration:none;font-size:1.25rem;" class="">' . get_field('phone','options') . '</a>';
 
@@ -98,20 +98,39 @@ echo '</header>';
 
 if(is_front_page()) {
 
-echo '<section class="hero position-relative d-flex align-items-end justify-content-center" style="min-height:100vh;">';
+echo '<section class="hero position-relative d-flex align-items-end justify-content-center" style="">';
 
-the_post_thumbnail('full', array(
-    'class' => 'w-100 h-100 position-absolute',
-    'style' => 'top:0;left:0;object-fit:cover;'
-));
+// the_post_thumbnail('full', array(
+//     'class' => 'w-100 h-100 position-absolute',
+//     'style' => 'top:0;left:0;object-fit:cover;'
+// ));
 
-echo '<div class="w-100 text-white text-center" style="z-index:1;padding-bottom:75px;">';
+echo '<div class="header-carousel owl-carousel owl-theme position-absolute overflow-h h-100" style="top:0;left:0;object-fit:cover;">';
+
+echo '<div class="h-100">';
+echo wp_get_attachment_image(58,'full','',[
+    'class' => 'w-100 h-100',
+    'style' => 'object-fit:cover;'
+]);
+echo '</div>';
+
+echo '<div class="h-100">';
+echo wp_get_attachment_image(263,'full','',[
+    'class' => 'w-100 h-100',
+    'style' => 'object-fit:cover;'
+]);
+echo '</div>';
+
+echo '</div>';
+
+
+echo '<div class="w-100 text-white text-center hero-content" style="z-index:1;padding-bottom:75px;">';
 
 echo '<h1 class="w-100 thin" style="text-transform:uppercase;letter-spacing:.2em;font-size:6vw;margin-bottom:0;background:rgba(0,0,0,.5);">' . get_the_title() . '</h1>';
 
 echo '<div class="d-flex justify-content-center align-items-center" style="padding-top:15px;">';
-echo '<h2 class="thin" style="letter-spacing:.2em;margin:0;font-size:3vw;">PREMIUM CYBERTRUCK WRAPS</h2>';
-echo '<div class="m-auto bg-accent" style="margin-left:15px;height:2px;width:100px;"></div>';
+echo '<h2 class="thin text-shadow" style="letter-spacing:.2em;margin:0;font-size:3vw;">PREMIUM CYBERTRUCK WRAPS</h2>';
+echo '<div class="m-auto bg-accent" style="margin-left:15px;height:2px;width:75px;"></div>';
 echo '</div>';
 
 echo '</div>';

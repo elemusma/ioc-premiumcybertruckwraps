@@ -25,7 +25,7 @@ echo '<div class="position-relative img-hover overflow-h">';
 echo '<a href="' . wp_get_attachment_image_url($image['id'], 'full') . '" data-lightbox="image-set" style="" class="d-block">';
 
 echo wp_get_attachment_image($image['id'], 'full','',[
-    'class'=>'w-100 d-block',
+    'class'=>'w-100 d-block img-gallery',
     'style'=>'height:350px;object-fit:cover;'
 ] );
 echo '</a>';

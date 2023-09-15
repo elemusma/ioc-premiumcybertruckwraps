@@ -11,6 +11,7 @@ function register_acf_blocks() {
     register_block_type( __DIR__ . '/blocks/gallery' );
     register_block_type( __DIR__ . '/blocks/testimonials' );
     register_block_type( __DIR__ . '/blocks/gallery-carousel' );
+    register_block_type( __DIR__ . '/blocks/tabs' );
 }
 
 function premium_cyber_truck_wraps_stylesheets() {

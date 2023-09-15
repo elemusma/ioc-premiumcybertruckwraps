@@ -529,7 +529,7 @@ body {
 }
 
 .flex-wrap {
-    flex-wrap: wrap;
+    flex-wrap: wrap !important;
 }
 
 /* Small devices (576px and up) */
